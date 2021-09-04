@@ -3,8 +3,10 @@ import './App.css'
 
 function App() {
   return (
-    <h1>Project Gutenberg</h1>
+    <main>
+      <h1>Home page</h1>
+    </main>
   );
 }
 
-export default App;
+export default App
