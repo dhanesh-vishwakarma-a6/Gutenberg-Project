@@ -4,4 +4,6 @@
   /* dimension */
   width: 100vw;
   height: 100vh;
+  /* spacing */
+  padding: 2rem;
 }

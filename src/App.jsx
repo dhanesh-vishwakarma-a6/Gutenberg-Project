@@ -1,11 +1,10 @@
 import React from "react"
 import './App.css'
-import Home from "pages/Home/index";
 
 function App() {
   return (
     <div className="container">
-      <Home />
+      <h1>Gutenberg Project</h1>
     </div>
   );
 }
