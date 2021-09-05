@@ -1,0 +1,32 @@
+/*
+  ==========
+  BOOK CARD
+  ==========
+  */
+
+.book-card {
+  margin: 1rem;
+}
+
+.reactangle {
+  /* dimension */
+  width: 7.15rem;
+  height: 10.125rem;
+  /* outer */
+  border-radius: var(--radius-2);
+  box-shadow: var(--shadow);
+}
+
+.book-name,
+.author-name {
+  /* font */
+  color: var(--clr-grey-3);
+  font-size: 0.75rem;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.author-name {
+  color: var(--clr-grey-2);
+  text-transform: capitalize;
+}
