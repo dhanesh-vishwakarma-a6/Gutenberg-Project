@@ -12,6 +12,7 @@ GLOBAL STYLES
   /* primary colors */
   --clr-blue: #5e56e7;
   --clr-light: #f8f7ff;
+  --clr-white: #fff;
   /* secondary colors */
   --clr-grey-1: #f0f0f6;
   --clr-grey-2: #a0a0a0;
@@ -35,6 +36,8 @@ html {
 *:before,
 *:after {
   box-sizing: inherit;
+  margin: 0;
+  padding: 0;
 }
 
 /* * --- HEADINGS --- */
@@ -61,6 +64,7 @@ body {
 }
 
 main {
-  width: 100vmax;
-  height: 100vmax;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--clr-light);
 }
