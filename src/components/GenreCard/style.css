@@ -1,0 +1,41 @@
+/*
+  ==========
+  GENRE CARD
+  ==========
+  */
+
+.genre-card {
+  /* display */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--clr-white);
+  /* font */
+  color: var(--clr-grey-3);
+  font-size: 1.25rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  /* dimesion */
+  height: 3.125rem;
+  /* spacing */
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  margin: 1rem 3rem;
+  /* outer design */
+  border-radius: var(--radius-1);
+  box-shadow: var(--shadow);
+}
+
+.genre-card p {
+  margin: 0 1rem;
+}
+
+.space {
+  flex-grow: 1;
+}
+
+.genre-icon,
+.arrow-icon {
+  color: var(--clr-blue);
+  font-size: 2rem;
+}
