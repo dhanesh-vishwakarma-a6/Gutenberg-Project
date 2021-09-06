@@ -1,11 +1,18 @@
 import React from "react"
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
 import './App.css'
+
+import Home from "pages/Home";
+import Genre from "pages/Genre";
 
 function App() {
   return (
-    <div className="container">
-      <h1>Gutenberg Project</h1>
-    </div>
+    <Router>
+      <Switch>
+        <Route path="/" exact component={Home} />
+        <Route path="/genre" exact component={Genre} />
+      </Switch>
+    </Router>
   );
 }
 
