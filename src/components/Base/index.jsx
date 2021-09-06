@@ -1,15 +1,33 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { Link } from "react-router-dom"
-import { FaArrowLeft } from "react-icons/fa"
+// components
 import TextBar from "components/TextBar"
+import BookCard from "components/BookCard"
+// icons
+import { FaArrowLeft } from "react-icons/fa"
+import { getBooksByGenre } from "API"
+// style
 import "./style.css"
 
-const Base = ({
-    genreName,
-    children
-}) => {
+const Base = ({ genreName }) => {
 
+    // page state
     const [value, setValue] = useState("")
+    const [books, setBooks] = useState([])
+
+    // fetch books from api
+    const loadGenreBooks = () => {
+        getBooksByGenre(genreName)
+            .then(data => {
+                setBooks(data.results)
+            })
+            .catch(err => console.log(err))
+    }
+
+    // preload books on page
+    useEffect(() => {
+        loadGenreBooks()
+    }, [])
 
     // handle text bar value
     const handleChange = (event) => {
@@ -17,6 +35,7 @@ const Base = ({
     }
     return (
         <main className="genre-page">
+            {/* page header */}
             <header>
                 <h2>
                     <Link to="/">
@@ -26,8 +45,21 @@ const Base = ({
                 </h2>
                 <TextBar value={value} handleChange={handleChange} />
             </header>
+            {/* page content section */}
             <section className="books-container">
-                <div className="books">{children}</div>
+                <div className="books">
+                    {/* book card grid */}
+                    {books.map((book) => {
+                        return (
+                            <BookCard
+                                key={book.id}
+                                img={book.formats["image/jpeg"]}
+                                name={book.title.split(":")[0]}
+                                author={book.authors[0].name}
+                            />
+                        )
+                    })}
+                </div>
             </section>
         </main>
     )
