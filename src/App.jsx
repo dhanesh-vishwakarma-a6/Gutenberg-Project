@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
 
 import Home from "pages/Home";
 import Fiction from "pages/Fiction";
+
 function App() {
   return (
     <Router>
