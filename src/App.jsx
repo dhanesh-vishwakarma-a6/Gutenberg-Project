@@ -3,14 +3,13 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
 import './App.css'
 
 import Home from "pages/Home";
-import Genre from "pages/Genre";
-
+import Fiction from "pages/Fiction";
 function App() {
   return (
     <Router>
       <Switch>
         <Route path="/" exact component={Home} />
-        <Route path="/genre" exact component={Genre} />
+        <Route path="/fiction" exact component={Fiction} />
       </Switch>
     </Router>
   );
