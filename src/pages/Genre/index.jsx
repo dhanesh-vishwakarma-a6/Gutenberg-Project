@@ -6,7 +6,7 @@ import "./style.css"
 
 const Genre = ({ genreName, books }) => {
     return (
-        <div className="page">
+        <main className="genre-page">
             <header>
                 <h2>
                     <FaArrowLeft className="arrow-icon" />
@@ -21,7 +21,7 @@ const Genre = ({ genreName, books }) => {
                     ))}
                 </div>
             </section>
-        </div>
+        </main>
     )
 }
 
