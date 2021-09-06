@@ -1,0 +1,50 @@
+/* 
+==========
+GENRE BASE
+==========
+*/
+
+.genre-page {
+  display: grid;
+  grid-template-rows: 1fr auto;
+}
+
+header {
+  /* display */
+  background-color: var(--clr-white);
+  /* dimension */
+  width: 70%;
+  /* spacing */
+  margin: auto;
+  margin-bottom: 1rem;
+}
+
+header h2 {
+  margin: 0.5rem;
+}
+
+.arrow-icon {
+  /* font */
+  color: var(--clr-blue);
+  font-size: 1.5rem;
+  /* spacing */
+  margin-right: var(--spacing);
+}
+
+.books-container {
+  /* display */
+  background-color: var(--clr-light);
+  /* spacing */
+  padding: 1rem 0;
+}
+
+.books {
+  /* diplay */
+  display: grid;
+  grid-template-columns: repeat(6, auto);
+  grid-template-rows: repeat(auto-fill, auto);
+  /* dimension */
+  width: 70%;
+  /* spacing */
+  margin: auto;
+}
