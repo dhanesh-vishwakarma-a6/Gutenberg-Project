@@ -13,7 +13,8 @@ header {
   /* display */
   background-color: var(--clr-white);
   /* dimension */
-  width: 70%;
+  width: 70vw;
+  min-height: 30%;
   /* spacing */
   margin: auto;
   margin-bottom: 1rem;
@@ -45,7 +46,8 @@ header h2 {
   grid-template-columns: repeat(6, auto);
   grid-template-rows: repeat(auto-fill, auto);
   /* dimension */
-  width: 70%;
+  width: 70vw;
+  min-height: 70vh;
   /* spacing */
   margin: auto;
 }
