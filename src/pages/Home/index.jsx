@@ -1,8 +1,10 @@
-import React from "react"
+import React, { useState } from "react"
 import GenreCard from "components/GenreCard"
+import { genres as genresData } from "../../data"
 import "./style.css"
 
-const Home = ({ genres }) => {
+const Home = () => {
+    const [genres, setGenres] = useState(genresData)
     return (
         <div className="home-page">
             <header className="title-container">
