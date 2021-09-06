@@ -1,5 +1,6 @@
 import React from "react"
 import * as FontAwesome from "react-icons/fa"
+import { Link } from "react-router-dom"
 import "./style.css"
 
 const GenreCard = ({ name, icon }) => {
@@ -9,7 +10,9 @@ const GenreCard = ({ name, icon }) => {
             <FontAwesome.FaCanadianMapleLeaf className="arrow-icon" />
             <p>{name}</p>
             <div className="space"></div>
-            <FontAwesome.FaArrowRight className="arrow-icon" />
+            <Link to={`/${name}`}>
+                <FontAwesome.FaArrowRight className="arrow-icon" />
+            </Link>
         </section>
     )
 }
