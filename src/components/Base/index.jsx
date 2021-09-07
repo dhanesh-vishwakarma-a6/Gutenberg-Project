@@ -22,10 +22,9 @@ const Base = ({ genreName }) => {
     const loadGenreBooks = async () => {
         setLoading(true)
         await getBooksByGenre(genreName)
-            .then(data => {
-                const filteredBooks = filterCoverBooks(data.results)
+            .then(response => {
+                const filteredBooks = filterCoverBooks(response.results)
                 setBooks(filteredBooks)
-                // console.log(filteredBooks)
             })
             .catch(err => console.log(err))
         setLoading(false)
@@ -37,8 +36,8 @@ const Base = ({ genreName }) => {
             setLoading(true)
             await search(value)
                 .then(response => {
-                    setBooks(filterCoverBooks(response.results))
-                    // console.log(response)
+                    const filteredBooks = filterCoverBooks(response.results)
+                    setBooks(filteredBooks)
                 })
                 .catch(err => console.log(err))
             setLoading(false)
@@ -86,6 +85,7 @@ const Base = ({ genreName }) => {
                                     img={formats["image/jpeg"]}
                                     name={title.split(":")[0]}
                                     author={formatName(authors[0].name)}
+                                    viewBook={formats["text/html; charset=utf-8"]}
                                 />
                             )
                         }))}
