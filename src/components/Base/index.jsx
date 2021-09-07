@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react"
 import { Link } from "react-router-dom"
+import { filterCoverBooks, formatName } from "../../helper"
 // components
 import TextBar from "components/TextBar"
 import BookCard from "components/BookCard"
@@ -19,7 +20,9 @@ const Base = ({ genreName }) => {
     const loadGenreBooks = () => {
         getBooksByGenre(genreName)
             .then(data => {
-                setBooks(data.results)
+                const filteredBooks = filterCoverBooks(data.results)
+                setBooks(filteredBooks)
+                console.log(filteredBooks)
             })
             .catch(err => console.log(err))
     }
@@ -48,14 +51,15 @@ const Base = ({ genreName }) => {
             {/* page content section */}
             <section className="books-container">
                 <div className="books">
-                    {/* book card grid */}
+                    {/* books grid */}
                     {books.map((book) => {
+                        const { id, formats, title, authors } = book
                         return (
                             <BookCard
-                                key={book.id}
-                                img={book.formats["image/jpeg"]}
-                                name={book.title.split(":")[0]}
-                                author={book.authors[0].name}
+                                id={id}
+                                img={formats["image/jpeg"]}
+                                name={title.split(":")[0]}
+                                author={formatName(authors[0].name)}
                             />
                         )
                     })}
