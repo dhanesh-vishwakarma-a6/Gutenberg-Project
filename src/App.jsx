@@ -16,7 +16,7 @@ const Politics = lazy(() => import("pages/Politics"))
 function App() {
   return (
     <Router>
-      <Suspense fallback={<Loader />}>
+      <Suspense fallback={<div>Loading...</div>}>
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/fiction" exact component={Fiction} />
