@@ -1,10 +1,10 @@
 import React from "react"
 import "./style.css"
 
-const BookCard = ({ img, name, author, key }) => {
+const BookCard = ({ id, img, name, author, }) => {
     return (
         <article className="book-card">
-            <figure key={key}>
+            <figure key={id}>
                 <img src={img} alt="" className="reactangle" /> <br />
                 <figcaption >
                     <p className="book-name">{name}</p>
