@@ -1,7 +1,7 @@
 import React from "react"
 import "./style.css"
 
-const TextBar = ({ value, handleChange }) => {
+const TextBar = ({ value, handleChange, searchString }) => {
     return (
         <div>
             <input
@@ -9,8 +9,9 @@ const TextBar = ({ value, handleChange }) => {
                 name="textBar"
                 placeholder="Search"
                 className="text-bar"
-                onChange={handleChange}
                 value={value}
+                onChange={handleChange}
+                onKeyPress={searchString}
             />
         </div>
     )
