@@ -19,7 +19,7 @@ const Base = ({ genreName }) => {
     const [loading, setLoading] = useState(false)
 
     // fetch books from api
-    const loadGenreBooks = async () => {
+    const getGenreBooks = async () => {
         setLoading(true)
         await getBooksByGenre(genreName)
             .then(response => {
@@ -28,6 +28,27 @@ const Base = ({ genreName }) => {
             })
             .catch(err => console.log(err))
         setLoading(false)
+    }
+
+    // preload books on page
+    useEffect(() => {
+        getGenreBooks()
+    }, [])
+
+    // display books
+    const displayBooks = () => {
+        return books.map((book) => {
+            const { id, formats, title, authors } = book
+            return (
+                <BookCard
+                    id={id}
+                    img={formats["image/jpeg"]}
+                    name={title.split(":")[0]}
+                    author={formatName(authors[0].name)}
+                    viewBook={formats["text/html; charset=utf-8"]}
+                />
+            )
+        })
     }
 
     // search keyword
@@ -44,20 +65,11 @@ const Base = ({ genreName }) => {
         }
     }
 
-    // clear the text box
-    const clear = () => {
-        setValue("")
-    }
-
-    // preload books on page
-    useEffect(() => {
-        loadGenreBooks()
-    }, [])
-
     // handle text bar value
     const handleChange = (event) => {
         setValue(event.target.value)
     }
+
     return (
         <main className="genre-page">
             {/* page header */}
@@ -73,22 +85,10 @@ const Base = ({ genreName }) => {
             {/* page content section */}
             <section className="books-container">
                 <div className="books">
-                    {/* books grid */}
                     {loading ? (
                         <Loader />
                     ) : (
-                        books.map((book) => {
-                            const { id, formats, title, authors } = book
-                            return (
-                                <BookCard
-                                    id={id}
-                                    img={formats["image/jpeg"]}
-                                    name={title.split(":")[0]}
-                                    author={formatName(authors[0].name)}
-                                    viewBook={formats["text/html; charset=utf-8"]}
-                                />
-                            )
-                        }))}
+                        books.length !== 0) ? displayBooks() : "Books Not Available"}
                 </div>
             </section>
         </main>
