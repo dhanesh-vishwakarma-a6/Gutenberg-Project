@@ -7,7 +7,7 @@ import BookCard from "components/BookCard"
 import Loader from "components/Loader"
 // icons
 import { FaArrowLeft } from "react-icons/fa"
-import { getBooksByGenre } from "API"
+import { getBooksByGenre, search } from "API"
 // style
 import "./style.css"
 
@@ -25,10 +25,29 @@ const Base = ({ genreName }) => {
             .then(data => {
                 const filteredBooks = filterCoverBooks(data.results)
                 setBooks(filteredBooks)
-                console.log(filteredBooks)
+                // console.log(filteredBooks)
             })
             .catch(err => console.log(err))
         setLoading(false)
+    }
+
+    // search keyword
+    const searchString = async (event) => {
+        if (event.key === "Enter") {
+            setLoading(true)
+            await search(value)
+                .then(response => {
+                    setBooks(filterCoverBooks(response.results))
+                    // console.log(response)
+                })
+                .catch(err => console.log(err))
+            setLoading(false)
+        }
+    }
+
+    // clear the text box
+    const clear = () => {
+        setValue("")
     }
 
     // preload books on page
@@ -50,7 +69,7 @@ const Base = ({ genreName }) => {
                     </Link>
                     {genreName}
                 </h2>
-                <TextBar value={value} handleChange={handleChange} />
+                <TextBar value={value} handleChange={handleChange} searchString={searchString} />
             </header>
             {/* page content section */}
             <section className="books-container">
