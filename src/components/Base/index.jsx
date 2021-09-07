@@ -12,7 +12,6 @@ import { getBooksByGenre, search } from "API"
 import "./style.css"
 
 const Base = ({ genreName }) => {
-
     // page state
     const [value, setValue] = useState("")
     const [books, setBooks] = useState([])
