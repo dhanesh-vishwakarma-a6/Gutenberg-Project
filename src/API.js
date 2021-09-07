@@ -16,7 +16,7 @@ export const getBookById = (bookId) => {
 
 // search by string
 export const search = (str) => {
-    return fetch(`${API}/books?search=${str}`, { method: "GET" })
+    return fetch(`${API}/books?search=${encodeURI(str)}`, { method: "GET" })
         .then(response => response.json())
         .catch(err => console.log(err))
 }
