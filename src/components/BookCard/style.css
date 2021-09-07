@@ -15,6 +15,8 @@
   /* outer */
   border-radius: var(--radius-2);
   box-shadow: var(--shadow);
+
+  cursor: pointer;
 }
 
 .book-name,
