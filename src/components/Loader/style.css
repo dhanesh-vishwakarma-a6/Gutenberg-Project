@@ -25,3 +25,11 @@
     transform: rotate(360deg);
   }
 }
+
+/* MOBILE VIEW */
+@media (max-width: 375px) {
+  .loader {
+    grid-column: 2/2;
+    grid-row: 2/2;
+  }
+}

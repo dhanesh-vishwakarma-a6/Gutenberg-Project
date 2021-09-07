@@ -13,7 +13,7 @@ HOME PAGE
 .title-container {
   /* display */
   display: grid;
-  grid-template-columns: 2fr 60vw 2fr;
+  grid-template-columns: 1fr 60vw 1fr;
   background-color: var(--clr-white);
   /* dimension */
   width: 100%;
@@ -52,4 +52,29 @@ HOME PAGE
   /* spacing */
   padding-top: 1rem;
   margin: auto;
+}
+
+@media (max-width: 375px) {
+  .title-container {
+    /* display */
+    display: grid;
+    grid-template-columns: 1fr 90vw 1fr;
+    background-color: var(--clr-white);
+    /* dimension */
+    width: 100%;
+  }
+
+  .genres-container {
+    /* display */
+    grid-template-columns: 1fr 100vw 1fr;
+    display: grid;
+    background-color: var(--clr-light);
+  }
+
+  .genres {
+    /* display */
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(auto-fill, auto);
+  }
 }

@@ -41,7 +41,7 @@ header h2 {
 }
 
 .books {
-  /* diplay */
+  /* display */
   display: grid;
   grid-template-columns: repeat(6, auto);
   grid-template-rows: repeat(auto-fill, auto);
@@ -50,4 +50,22 @@ header h2 {
   min-height: 70vh;
   /* spacing */
   margin: auto;
+}
+
+/* * MOBILE VIEW */
+@media (max-width: 375px) {
+  header {
+    width: 90vw;
+  }
+
+  .books-container {
+    padding: 0;
+  }
+
+  .books {
+    display: grid;
+    grid-template-columns: repeat(3, 7.5rem);
+    grid-template-rows: repeat(auto-fit, auto);
+    margin: 0;
+  }
 }
