@@ -75,10 +75,10 @@ const Base = ({ genreName }) => {
             <section className="books-container">
                 <div className="books">
                     {/* books grid */}
-                    {loading ?
-                        (<Loader />)
-                        :
-                        (books.map((book) => {
+                    {loading ? (
+                        <Loader />
+                    ) : (
+                        books.map((book) => {
                             const { id, formats, title, authors } = book
                             return (
                                 <BookCard
